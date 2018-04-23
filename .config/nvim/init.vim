@@ -16,6 +16,7 @@ set nobackup
 set showtabline=2
 set background=light
 set number
+set expandtab
 set tabstop=2  "タブを表示するとき
 set shiftwidth=2  "タブを挿入するとき
 
@@ -60,6 +61,7 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+set background=dark
 colorscheme solarized
 
 augroup typescript_loading
