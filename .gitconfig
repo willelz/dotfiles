@@ -1,0 +1,10 @@
+[user]
+	name = willelz
+	email = 37827548+willelz@users.noreply.github.com
+[color]
+	ui = auto
+[alias]
+	b = branch
+	co = checkout
+	st = status
+	cm = commit

@@ -1,0 +1,33 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event='InsertEnter'
+hook_source = '''
+call deoplete#enable()
+"<TAB>: completion.
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ deoplete#manual_complete()
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Use smartcase.
+" 大文字が含まれていたら大文字小文字を区別する
+call deoplete#custom#option('smart_case', v:true)
+"<BS>: close popup and delete backword char.
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+let g:deoplete#complete_method = 'omnifunc'
+'''
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+on_ft = 'typescript'
+hook_add = '''
+let g:nvim_typescript#type_info_on_hold = 1
+let g:nvim_typescript#signature_complete = 1
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event='InsertEnter'
