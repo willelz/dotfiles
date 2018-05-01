@@ -15,3 +15,10 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_lint_on_text_changed="normal"
+let g:ale_lint_on_insert_leave=1
+'''
