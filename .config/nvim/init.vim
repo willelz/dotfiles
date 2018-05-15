@@ -66,3 +66,8 @@ augroup typescript_loading
 	autocmd BufRead,BufNewFile *.ts set filetype=typescript
 	autocmd BufRead,BufNewFile *.tsx set filetype=typescript
 augroup END
+
+augroup toml
+	autocmd!
+	autocmd BufRead,BufNewFile *.toml set filetype=toml
+augroup END
