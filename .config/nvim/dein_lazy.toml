@@ -21,6 +21,7 @@ inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 '''
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
+build = './install.sh'
 on_ft = ['typescript', 'typescriptreact']
 hook_add = '''
 let g:nvim_typescript#type_info_on_hold = 1
