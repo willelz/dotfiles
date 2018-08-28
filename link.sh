@@ -10,7 +10,7 @@ for f in .??*; do
   ln -s ${DOT_DIR}/${f} ${HOME}/
 done
 
-cd .config
+cd dotConfig
 for f in *; do
-  ln -s ${DOT_DIR}/.config/${f} ${HOME}/.config/
+  ln -s ${DOT_DIR}/dotConfig/${f} ${HOME}/.config/
 done
