@@ -19,6 +19,17 @@ call deoplete#custom#option('smart_case', v:true)
 "<BS>: close popup and delete backword char.
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 '''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+on_ft = 'haskell'
+rev = 'next'
+build = 'bash install.sh'
+hook_add='''
+let g:LanguageClient_serverCommands = { 'haskell': ['hie'] }
+set completefunc=LanguageClient#complete
+'''
+
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 build = './install.sh'

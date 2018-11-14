@@ -20,6 +20,12 @@ repo = 'othree/html5.vim'
 repo = 'HerringtonDarkholme/yats.vim'
 
 [[plugins]]
+repo = 'urso/haskell_syntax.vim'
+
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+
+[[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 
 [[plugins]]
