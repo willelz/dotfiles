@@ -9,6 +9,6 @@
 	st = status
 	cm = commit
 [core]
-	editor = vim -c \"set fenc=utf-8\"
+	editor = nvim -c \"set fenc=utf-8\"
 [credential]
 	helper = cache
