@@ -14,11 +14,29 @@ set noundofile
 set noswapfile
 set nobackup
 set showtabline=2
-set background=light
 set number
 set expandtab
 set tabstop=2  "タブを表示するとき
 set shiftwidth=2  "タブを挿入するとき
+
+set breakindent
+
+"デフォルトプラグインを止める
+let g:loaded_gzip              = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
 
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
