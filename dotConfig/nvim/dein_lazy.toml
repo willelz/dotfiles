@@ -32,6 +32,11 @@ call deoplete#enable()
 '''
 
 [[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_ft = ['typescript', 'haskell']
+build = 'bash ./install.sh'
+
+[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 on_ft = 'haskell'
 rev = 'next'
