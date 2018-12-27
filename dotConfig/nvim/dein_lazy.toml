@@ -33,7 +33,7 @@ call deoplete#enable()
 
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
-on_ft = ['typescript', 'haskell']
+on_event='InsertEnter'
 build = 'bash ./install.sh'
 
 [[plugins]]
