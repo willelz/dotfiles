@@ -20,7 +20,9 @@ set expandtab
 set tabstop=2  "タブを表示するとき
 set shiftwidth=2  "タブを挿入するとき
 set breakindent
+
 tnoremap <Esc> <C-\><C-n>
+inoremap jj <Esc>
 
 "デフォルトプラグインを止める
 let g:loaded_gzip              = 1
