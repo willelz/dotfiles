@@ -46,3 +46,19 @@ let g:ale_fixers = {
   \}
 let g:ale_fix_on_save=1
 '''
+
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+set noshowmode
+
+let g:lightline = {
+  \  'colorscheme' : 'solarized',
+  \  'active' : {
+  \    'right' : [ ['lineinfo'],
+  \                ['percent'],
+  \                ['filetype']]
+  \  }
+  \}
+'''
