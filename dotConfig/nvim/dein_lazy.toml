@@ -12,12 +12,6 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return pumvisible() ? deoplete#close_popup() : "\<CR>"
-endfunction
-
 " Use smartcase.
 " 大文字が含まれていたら大文字小文字を区別する
 call deoplete#custom#option('smart_case', v:true)

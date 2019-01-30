@@ -33,6 +33,10 @@ repo = 'itchyny/vim-haskell-indent'
 
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+let g:comfortable_motion_friction = 50.0
+let g:comfortable_motion_air_drag = 5.0
+'''
 
 [[plugins]]
 repo = 'w0rp/ale'
