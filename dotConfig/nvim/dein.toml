@@ -32,6 +32,9 @@ let g:haskell_indent_disable = 1
 repo = 'itchyny/vim-haskell-indent'
 
 [[plugins]]
+repo = 'justinmk/vim-dirvish'
+
+[[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
 let g:comfortable_motion_friction = 50.0
