@@ -11,6 +11,18 @@ repo = 'cocopon/iceberg.vim'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
+repo = 'machakann/vim-sandwich'
+hook_add = '''
+nmap s <Nop>
+xmap s <Nop>
+
+let g:sandwich_no_initex_ftplugin = 1
+let g:sandwich_no_julia_ftplugin = 1
+let g:sandwich_no_plaintex_ftplugin = 1
+let g:sandwich_no_tex_ftplugin = 1
+'''
+
+[[plugins]]
 repo = 'zah/nim.vim'
 
 [[plugins]]
