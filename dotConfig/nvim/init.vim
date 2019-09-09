@@ -1,4 +1,3 @@
-set encoding=utf-8
 "読み込み時の文字コード
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 "保存時の文字コード
@@ -8,7 +7,6 @@ set fileformats=unix,dos,mac
 "○が崩れないように
 set ambiwidth=double
 set incsearch
-set wildmenu
 set wildmode=longest:full,full
 set cursorline
 set noundofile
@@ -22,7 +20,6 @@ set shiftwidth=2  "タブを挿入するとき
 set breakindent
 
 tnoremap <Esc> <C-\><C-n>
-inoremap jj <Esc>
 
 "デフォルトプラグインを止める
 let g:loaded_gzip              = 1
@@ -43,6 +40,11 @@ let g:loaded_netrwFileHandlers = 1
 
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+
+command! Erc e ~/.config/nvim/init.vim
+command! Eml e ~/.config/nvim/dein.toml
+command! Ell e ~/.config/nvim/dein_lazy.toml
 
 "dein Scripts-----------------------------
 if &compatible
