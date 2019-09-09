@@ -44,6 +44,9 @@ let g:haskell_indent_disable = 1
 repo = 'itchyny/vim-haskell-indent'
 
 [[plugins]]
+repo = 'andys8/vim-elm-syntax'
+
+[[plugins]]
 repo = 'justinmk/vim-dirvish'
 
 [[plugins]]
@@ -58,11 +61,12 @@ repo = 'w0rp/ale'
 hook_add = '''
 let g:ale_lint_on_text_changed="normal"
 let g:ale_lint_on_insert_leave=1
-let g:ale_fixers={}
+let g:ale_linters = {'elm': 'all'}
 let g:ale_fixers = {
   \  'typescript' : ['prettier'],
   \  'javascript' : ['prettier'],
   \  'less' : ['prettier'],
+  \  'elm' : ['elm-format'],
   \}
 let g:ale_fix_on_save=1
 '''

@@ -22,6 +22,10 @@ call deoplete#custom#source('LanguageClient',
   \ 'min_pattern_length',
   \ 2)
 
+call deoplete#custom#option('sources', {
+  \ 'elm' : [],
+  \})
+
 call deoplete#enable()
 '''
 
