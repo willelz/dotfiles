@@ -23,9 +23,6 @@ let g:sandwich_no_tex_ftplugin = 1
 '''
 
 [[plugins]]
-repo = 'zah/nim.vim'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
