@@ -14,6 +14,16 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
+repo = 'tyru/eskk.vim'
+hook_add= '''
+let g:eskk#large_dictionary = {
+\	'path': "~/.skk/SKK-JISYO.L",
+\	'sorted': 1,
+\	'encoding': 'euc-jp',
+\}
+'''
+
+[[plugins]]
 repo = 'machakann/vim-sandwich'
 hook_add = '''
 nmap s <Nop>
