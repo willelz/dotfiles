@@ -64,9 +64,5 @@ let g:nvim_typescript#signature_complete = 0
 '''
 
 [[plugins]]
-repo = 'kana/vim-smartinput'
-on_event='InsertEnter'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['typescript', 'typescriptreact', 'javascript', 'html']
