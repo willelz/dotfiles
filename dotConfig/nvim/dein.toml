@@ -78,6 +78,7 @@ let g:ale_linters = {'elm': 'all'}
 let g:ale_fixers = {
   \  'typescript' : ['prettier'],
   \  'javascript' : ['prettier'],
+  \  'json' : ['prettier'],
   \  'less' : ['prettier'],
   \  'elm' : ['elm-format'],
   \}
