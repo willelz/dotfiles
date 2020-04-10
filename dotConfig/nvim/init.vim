@@ -18,6 +18,7 @@ set expandtab
 set tabstop=2  "タブを表示するとき
 set shiftwidth=2  "タブを挿入するとき
 set breakindent
+set termguicolors
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -68,4 +69,4 @@ endif
 
 "End dein Scripts-------------------------
 set background=dark
-colorscheme solarized
+colorscheme solarized8

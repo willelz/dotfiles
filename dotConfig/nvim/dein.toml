@@ -2,13 +2,16 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'lifepillar/vim-solarized8'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
+
+[[plugins]]
+repo = 'mhartington/oceanic-next'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
@@ -66,9 +69,6 @@ repo = 'itchyny/vim-haskell-indent'
 
 [[plugins]]
 repo = 'andys8/vim-elm-syntax'
-
-[[plugins]]
-repo = 'justinmk/vim-dirvish'
 
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
