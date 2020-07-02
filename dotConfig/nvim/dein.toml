@@ -14,6 +14,12 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
+repo = 'willelz/vim-flat-yank'
+hook_add = '''
+vnoremap <Leader>y :<C-u>FlatYank +<CR>
+'''
+
+[[plugins]]
 repo = 'tyru/eskk.vim'
 hook_add= '''
 let g:eskk#large_dictionary = {
@@ -22,8 +28,7 @@ let g:eskk#large_dictionary = {
 \	'encoding': 'euc-jp',
 \}
 
-let g:eskk#marker_henkan = ''
-let g:eskk#marker_henkan_select = ''
+let g:eskk#tab_select_completion = 1
 '''
 
 [[plugins]]
