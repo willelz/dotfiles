@@ -32,6 +32,8 @@ let g:eskk#large_dictionary = {
 \}
 
 let g:eskk#tab_select_completion = 1
+let g:eskk#marker_henkan = "@"
+let g:eskk#marker_henkan_select = "#"
 '''
 
 [[plugins]]
@@ -109,7 +111,18 @@ let g:lightline = {
   \  'active' : {
   \    'right' : [ ['lineinfo'],
   \                ['percent'],
-  \                ['filetype']]
+  \                ['filetype'],
+  \                ['eskkst']]
+  \  },
+  \  'component_function' : {
+  \    'eskkst' : 'Eskk_statusline'
   \  }
   \}
+function! Eskk_statusline() abort
+    return eskk#is_enabled()
+                \      ? printf('[%s]',
+                \               get(g:eskk#statusline_mode_strings,
+                \                   eskk#get_current_instance().mode, '??'))
+                \      : ""
+endfunction
 '''
