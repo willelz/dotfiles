@@ -47,6 +47,10 @@ command! Erc e ~/.config/nvim/init.vim
 command! Eml e ~/.config/nvim/dein.toml
 command! Ell e ~/.config/nvim/dein_lazy.toml
 
+if $TOKEN_FOR_DEIN
+  let g:dein#install_github_api_token = $TOKEN_FOR_DEIN
+endif
+
 "dein Scripts-----------------------------
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
