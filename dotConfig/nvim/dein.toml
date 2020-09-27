@@ -14,26 +14,27 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'mhartington/oceanic-next'
 
 [[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/telescope.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/completion-nvim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'willelz/vim-flat-yank'
 hook_add = '''
 vnoremap <Leader>y :<C-u>FlatYank +<CR>
-'''
-
-[[plugins]]
-repo = 'tyru/eskk.vim'
-hook_add= '''
-let g:eskk#large_dictionary = {
-\	'path': "~/.skk/SKK-JISYO.L",
-\	'sorted': 1,
-\	'encoding': 'euc-jp',
-\}
-
-let g:eskk#tab_select_completion = 1
-let g:eskk#marker_henkan = "@"
-let g:eskk#marker_henkan_select = "#"
 '''
 
 [[plugins]]
@@ -83,23 +84,6 @@ hook_add = '''
 let g:comfortable_motion_friction = 50.0
 let g:comfortable_motion_air_drag = 5.0
 '''
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_lint_on_text_changed="normal"
-let g:ale_lint_on_insert_leave=1
-let g:ale_linters = {'elm': 'all'}
-let g:ale_fixers = {
-  \  'typescript' : ['prettier'],
-  \  'javascript' : ['prettier'],
-  \  'json' : ['prettier'],
-  \  'less' : ['prettier'],
-  \  'elm' : ['elm-format'],
-  \}
-let g:ale_fix_on_save=1
-'''
-
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
