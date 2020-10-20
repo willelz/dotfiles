@@ -21,12 +21,13 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-lua/telescope.nvim'
+hook_add = '''
+nnoremap <Leader>g <cmd>lua require('telescope.builtin').git_files{}<CR>
+nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
+'''
 
 [[plugins]]
 repo = 'nvim-lua/completion-nvim'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
@@ -103,6 +104,9 @@ let g:lightline = {
   \  }
   \}
 function! Eskk_statusline() abort
+    if get(g:, 'loaded_eskk') == 0
+      return ''
+    endif
     return eskk#is_enabled()
                 \      ? printf('[%s]',
                 \               get(g:eskk#statusline_mode_strings,
