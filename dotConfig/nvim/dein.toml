@@ -27,7 +27,15 @@ nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
 '''
 
 [[plugins]]
-repo = 'nvim-lua/completion-nvim'
+repo = 'tjdevries/nlua.nvim'
+hook_add = '''
+lua require('nlua.lsp.nvim').setup(require('nvim_lsp'), {
+  \ on_attach = require'completion'.on_attach
+  \ } )
+'''
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
