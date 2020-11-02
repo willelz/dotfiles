@@ -29,9 +29,7 @@ nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
 [[plugins]]
 repo = 'tjdevries/nlua.nvim'
 hook_add = '''
-lua require('nlua.lsp.nvim').setup(require('nvim_lsp'), {
-  \ on_attach = require'completion'.on_attach
-  \ } )
+lua require('nlua.lsp.nvim').setup(require('nvim_lsp'), {})
 '''
 
 [[plugins]]
@@ -39,6 +37,14 @@ repo = 'neovim/nvim-lspconfig'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'Shougo/deoplete-lsp'
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+build = 'bash ./install.sh'
+
 
 [[plugins]]
 repo = 'willelz/vim-flat-yank'

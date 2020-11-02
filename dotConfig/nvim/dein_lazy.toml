@@ -1,4 +1,31 @@
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event='InsertEnter'
+hook_source = '''
+"<TAB>: completion.
+inoremap <silent><expr> <TAB>
+       \ pumvisible() ? "\<C-n>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ deoplete#manual_complete()
+function! s:check_back_space() abort
+       let col = col('.') - 1
+       return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Use smartcase.
+" 大文字が含まれていたら大文字小文字を区別する
+call deoplete#custom#option('smart_case', v:true)
+"<BS>: close popup and delete backword char.
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+
+call deoplete#custom#source('LanguageClient',
+  \ 'min_pattern_length',
+  \ 2)
+
+call deoplete#enable()
+'''
+
+[[plugins]]
 repo = 'tyru/eskk.vim'
 on_event = 'InsertEnter'
 hook_source= '''
