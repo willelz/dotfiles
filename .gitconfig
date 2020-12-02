@@ -8,7 +8,12 @@
 	co = checkout
 	st = status
 	cm = commit
+  sw = switch
+  rs = restore
 [core]
 	editor = nvim -c \"set fenc=utf-8\"
+	quotepath = false
 [credential]
 	helper = cache
+[pull]
+	ff = only
