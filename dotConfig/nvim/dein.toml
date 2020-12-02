@@ -29,7 +29,7 @@ nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
 [[plugins]]
 repo = 'tjdevries/nlua.nvim'
 hook_add = '''
-lua require('nlua.lsp.nvim').setup(require('nvim_lsp'), {})
+lua require('nlua.lsp.nvim').setup(require('lspconfig'), {})
 '''
 
 [[plugins]]
@@ -99,10 +99,9 @@ repo = 'itchyny/vim-haskell-indent'
 repo = 'andys8/vim-elm-syntax'
 
 [[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
+repo = 'psliwka/vim-smoothie'
 hook_add = '''
-let g:comfortable_motion_friction = 50.0
-let g:comfortable_motion_air_drag = 5.0
+let g:smoothie_update_interval = 10
 '''
 
 [[plugins]]
