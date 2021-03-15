@@ -20,7 +20,7 @@ repo = 'nvim-lua/popup.nvim'
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'nvim-lua/telescope.nvim'
+repo = 'nvim-telescope/telescope.nvim'
 hook_add = '''
 nnoremap <Leader>g <cmd>lua require('telescope.builtin').git_files{}<CR>
 nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
@@ -29,11 +29,17 @@ nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
 [[plugins]]
 repo = 'tjdevries/nlua.nvim'
 hook_add = '''
-lua require('nlua.lsp.nvim').setup(require('lspconfig'), {})
+augroup nlua
+  autocmd!
+  autocmd  BufRead,BufNewFile *.lua lua require('nlua.lsp.nvim').setup(require('lspconfig'), {})
+augroup END
 '''
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
+hook_add = '''
+lua require 'lspconfig'.tsserver.setup{}
+'''
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
