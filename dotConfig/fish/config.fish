@@ -4,7 +4,7 @@ set PATH $HOME/.local/bin $PATH
 alias vim="nvim"
 alias la="ls -pA"
 
-set EDITOR nvim
+set -x EDITOR nvim
 
 #エラー回避
 function x86
