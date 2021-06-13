@@ -28,12 +28,6 @@ nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
 
 [[plugins]]
 repo = 'tjdevries/nlua.nvim'
-hook_add = '''
-augroup nlua
-  autocmd!
-  autocmd  BufRead,BufNewFile *.lua lua require('nlua.lsp.nvim').setup(require('lspconfig'), {})
-augroup END
-'''
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
@@ -73,6 +67,9 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.tsserver.setup { on_attach = on_attach}
+require('nlua.lsp.nvim').setup(require('lspconfig'), {
+  on_attach = on_attach,
+  })
 EOF
 '''
 
@@ -85,6 +82,15 @@ repo = 'Shougo/deoplete-lsp'
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 build = 'bash ./install.sh'
+
+[[plugins]]
+repo = 'lambdalisue/edita.vim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+nnoremap <silent> <Leader>t :Deol<CR>
+'''
 
 [[plugins]]
 repo='lambdalisue/fern.vim'
