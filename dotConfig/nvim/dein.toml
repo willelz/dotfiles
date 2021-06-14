@@ -89,7 +89,7 @@ repo = 'lambdalisue/edita.vim'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-nnoremap <silent> <Leader>t :Deol<CR>
+nnoremap <silent> <Leader>t :Deol -command fish<CR>
 '''
 
 [[plugins]]
