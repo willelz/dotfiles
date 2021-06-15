@@ -40,3 +40,9 @@ let g:eskk#marker_henkan = "@"
 let g:eskk#marker_henkan_select = "#"
 '''
 
+[[plugins]]
+repo = 'willelz/teastylua.nvim'
+on_ft = "lua"
+hook_source = '''
+nmap <Space>f <Plug>teastyluaFormat
+'''
