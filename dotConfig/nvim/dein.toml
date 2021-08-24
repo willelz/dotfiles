@@ -80,10 +80,6 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'Shougo/deoplete-lsp'
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-build = 'bash ./install.sh'
-
-[[plugins]]
 repo = 'lambdalisue/edita.vim'
 
 [[plugins]]
