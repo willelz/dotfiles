@@ -2,6 +2,9 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
 repo = 'lifepillar/vim-solarized8'
 
 [[plugins]]
@@ -74,24 +77,21 @@ EOF
 '''
 
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'Shougo/deoplete-lsp'
-
-[[plugins]]
-repo = 'lambdalisue/edita.vim'
-
-[[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-nnoremap <silent> <Leader>t :Deol -command fish<CR>
-'''
+repo = 'lambdalisue/guise.vim'
 
 [[plugins]]
 repo='lambdalisue/fern.vim'
 hook_add = '''
 nnoremap - <cmd>Fern .<CR>
+'''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+nnoremap <silent> <Leader>t :Deol -command fish<CR>
 '''
 
 [[plugins]]
