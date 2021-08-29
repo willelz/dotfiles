@@ -8,12 +8,6 @@ repo = 'vim-denops/denops.vim'
 repo = 'lifepillar/vim-solarized8'
 
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'arcticicestudio/nord-vim'
-
-[[plugins]]
 repo = 'mhartington/oceanic-next'
 
 [[plugins]]
@@ -128,18 +122,6 @@ repo = 'othree/html5.vim'
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
-
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-hook_add = '''
-let g:haskell_indent_disable = 1
-'''
-
-[[plugins]]
-repo = 'itchyny/vim-haskell-indent'
-
-[[plugins]]
-repo = 'andys8/vim-elm-syntax'
 
 [[plugins]]
 repo = 'psliwka/vim-smoothie'
