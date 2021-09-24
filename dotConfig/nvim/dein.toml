@@ -140,20 +140,27 @@ let g:lightline = {
   \    'right' : [ ['lineinfo'],
   \                ['percent'],
   \                ['filetype'],
-  \                ['eskkst']]
+  \                ['skkst']]
   \  },
   \  'component_function' : {
-  \    'eskkst' : 'Eskk_statusline'
+  \    'skkst' : 'g:Skk_statusline'
   \  }
   \}
-function! Eskk_statusline() abort
-    if get(g:, 'loaded_eskk') == 0
+function! g:Skk_statusline() abort
+    if get(g:, 'loaded_skkeleton') == 0
       return ''
     endif
-    return eskk#is_enabled()
-                \      ? printf('[%s]',
-                \               get(g:eskk#statusline_mode_strings,
-                \                   eskk#get_current_instance().mode, '??'))
-                \      : ""
+
+    let l:mode = skkeleton#mode()
+
+    if l:mode == 'hira'
+      return 'あ'
+    elseif l:mode == 'kata'
+      return 'ア'
+    else
+      return ''
+    endif
 endfunction
+
+autocmd User skkeleton-mode-changed redraw!
 '''
