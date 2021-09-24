@@ -42,6 +42,7 @@ let g:loaded_netrwFileHandlers = 1
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
+nnoremap yss "+yy
 
 command! Erc e ~/.config/nvim/init.vim
 command! Eml e ~/.config/nvim/dein.toml
