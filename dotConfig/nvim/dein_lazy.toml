@@ -4,10 +4,6 @@ on_event='InsertEnter'
 hook_source = '''
 call ddc#custom#patch_global('sources', ['around', 'buffer', 'skkeleton'])
 
-call ddc#custom#patch_filetype(
-  \ ['typescript', 'typescriptreact', 'typescript.tsx'],
-  \ 'sources', ['nvimlsp'])
-
 call ddc#custom#patch_global('sourceOptions', {
   \ '_' : {
   \   'matchers' : ['matcher_head'],
@@ -20,6 +16,10 @@ call ddc#custom#patch_global('sourceOptions', {
   \ 'skkeleton' : {'mark' : 'skk'},
   \ 'nvimlsp' : {'mark' : 'lsp', 'forceCompletionPattern': '\.|:|->'},
   \ })
+
+call ddc#custom#patch_filetype(
+  \ ['typescript', 'typescriptreact', 'typescript.tsx'],
+  \ 'sources', ['nvim-lsp', 'around', 'buffer', 'skkeleton'])
 
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" : "\<TAB>"

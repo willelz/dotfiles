@@ -21,6 +21,7 @@ repo = 'nvim-telescope/telescope.nvim'
 hook_add = '''
 nnoremap <Leader>g <cmd>lua require('telescope.builtin').git_files{}<CR>
 nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
+nnoremap <Leader>r <cmd>lua require('telescope.builtin').live_grep{}<CR>
 '''
 
 [[plugins]]
@@ -63,7 +64,8 @@ local on_attach = function(client, bufnr)
   end
 end
 
-nvim_lsp.tsserver.setup { on_attach = on_attach}
+-- nvim_lsp.tsserver.setup { on_attach = on_attach }
+nvim_lsp.denols.setup { on_attach = on_attach }
 require('nlua.lsp.nvim').setup(require('lspconfig'), {
   on_attach = on_attach,
   })
