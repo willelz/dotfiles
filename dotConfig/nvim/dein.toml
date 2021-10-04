@@ -163,6 +163,4 @@ function! g:Skk_statusline() abort
       return ''
     endif
 endfunction
-
-autocmd User skkeleton-mode-changed redraw!
 '''

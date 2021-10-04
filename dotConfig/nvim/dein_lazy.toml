@@ -62,19 +62,7 @@ endfunction
 imap <C-j> <Plug>(skkeleton-enable)
 cmap <C-j> <Plug>(skkeleton-enable)
 
-function! s:skkeleton_enable_post() abort
-  imap l <Plug>(skkeleton-disable)
-  cmap l <Plug>(skkeleton-disable)
-endfunction
-
-function! s:skkeleton_disable_post() abort
-  iunmap l
-  cunmap l
-endfunction
-
 autocmd User skkeleton-initialize-pre call s:skkeleton_init()
-autocmd User skkeleton-enable-post call s:skkeleton_enable_post()
-autocmd User skkeleton-enable-post call s:skkeleton_disable_post()
 '''
 
 [[plugins]]
