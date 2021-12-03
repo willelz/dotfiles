@@ -48,7 +48,7 @@ repo = 'matsui54/ddc-buffer'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo='vim-skk/skkeleton '
+repo='vim-skk/skkeleton'
 on_event = 'InsertEnter'
 hook_source='''
 function! s:skkeleton_init() abort
