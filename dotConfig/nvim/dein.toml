@@ -134,6 +134,12 @@ let g:sandwich_no_tex_ftplugin = 1
 '''
 
 [[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+hook_add = '''
+nnoremap ss <cmd>FuzzyMotion<CR>
+'''
+
+[[plugins]]
 repo = 'voldikss/vim-translator'
 hook_add = '''
 let g:translator_target_lang = 'ja'
