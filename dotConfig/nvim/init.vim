@@ -39,6 +39,9 @@ let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 1
+
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
@@ -51,6 +54,8 @@ command! Ell e ~/.config/nvim/dein_lazy.toml
 if exists('$TOKEN_FOR_DEIN')
   let g:dein#install_github_api_token = $TOKEN_FOR_DEIN
 endif
+
+let g:dein#install_progress_type = 'floating'
 
 "dein Scripts-----------------------------
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim

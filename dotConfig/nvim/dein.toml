@@ -11,18 +11,91 @@ repo = 'lifepillar/vim-solarized8'
 repo = 'mhartington/oceanic-next'
 
 [[plugins]]
-repo = 'nvim-lua/popup.nvim'
+repo = 'zeertzjq/nvim-paste-fix'
+if = 'has("wsl")'
 
 [[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-
-[[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
+repo = 'Shougo/ddu.vim'
 hook_add = '''
-nnoremap <Leader>g <cmd>lua require('telescope.builtin').git_files{}<CR>
-nnoremap <Leader>f <cmd>lua require('telescope.builtin').find_files{}<CR>
-nnoremap <Leader>r <cmd>lua require('telescope.builtin').live_grep{}<CR>
+call ddu#custom#patch_global({
+  \ 'ui' : 'ff',
+  \ 'sources' : [{'name' : 'file_rec', 'params' : {} }],
+  \ 'sourceParams' : {
+  \   'file_rec' : {
+  \     'ignoredDirectories' : ['.git', 'node_modules'],
+  \   }
+  \ },
+  \ 'sourceOptions' : {
+  \   '_' : {
+  \     'matchers' : ['matcher_substring'],
+  \   },
+  \ },
+  \ 'kindOptions' : {
+  \   'file' : {
+  \     'defaultAction' : 'open',
+  \   },
+  \   'help' : { 'defaultAction' : 'open' }
+  \ },
+  \ 'uiParams' : {
+  \   'ff' : {
+  \     'startFilter' : v:true,
+  \     'prompt' : '>',
+  \     'previewFloating' : v:true,
+  \   }
+  \ },
+\})
+
+autocmd FileType ddu-ff call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space>
+        \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer><silent> i
+        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> q
+        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  nnoremap <buffer><silent> p
+        \ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
+endfunction
+
+autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+function! s:ddu_filter_my_settings() abort
+  inoremap <buffer><silent> <CR>
+  \ <Esc><Cmd>close<CR>
+  nnoremap <buffer><silent> <CR>
+  \ <Cmd>close<CR>
+  nnoremap <buffer><silent> q
+  \ <Cmd>close<CR>
+endfunction
+
+command! DDUHelp call ddu#start({'sources':[{'name':'help'}]})
+command! DDURg call ddu#start({'sources':[{'name':'rg'}], 'volatile':v:true})
 '''
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-line'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'shun/ddu-source-rg'
+hook_add = '''
+let g:loaded_ddu_rg = 1
+'''
+
+[[plugins]]
+repo = 'matsui54/ddu-source-help'
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
@@ -164,6 +237,10 @@ let g:smoothie_update_interval = 10
 
 [[plugins]]
 repo = 'willelz/pox.nvim'
+if = '!has("wsl")'
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
