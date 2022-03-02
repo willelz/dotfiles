@@ -185,7 +185,7 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-nnoremap <silent> <Leader>t :Deol -command fish<CR>
+nnoremap <silent> <Leader>t <cmd>Deol<CR>
 '''
 
 [[plugins]]
