@@ -125,13 +125,15 @@ function! CommandlinePre() abort
   \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
   \ ddc#manual_complete()
   cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+  cnoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+  cnoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
   cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
   cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 
   " Overwrite sources
   let s:prev_buffer_config = ddc#custom#get_buffer()
   call ddc#custom#patch_buffer('sources',
-          \ ['cmdline', 'around'])
+          \ ['cmdline', 'cmdline-history', 'around'])
 
   call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#]*')
 
