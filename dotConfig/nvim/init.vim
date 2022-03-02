@@ -51,6 +51,11 @@ command! Erc e ~/.config/nvim/init.vim
 command! Eml e ~/.config/nvim/dein.toml
 command! Ell e ~/.config/nvim/dein_lazy.toml
 
+augroup toml_syntax
+  autocmd!
+  autocmd BufWinEnter dein.toml,dein_lazy.toml call dein#toml#syntax()
+augroup END
+
 if exists('$TOKEN_FOR_DEIN')
   let g:dein#install_github_api_token = $TOKEN_FOR_DEIN
 endif
