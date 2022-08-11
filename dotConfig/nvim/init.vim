@@ -39,9 +39,6 @@ let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
-let g:do_filetype_lua = 1
-let g:did_load_filetypes = 1
-
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
