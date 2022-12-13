@@ -24,7 +24,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   vim.keymap.set('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   vim.keymap.set("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  end
 end
 
 nvim_lsp.denols.setup { on_attach = on_attach }
@@ -72,6 +71,7 @@ call ddc#custom#patch_global('autoCompleteEvents', [
     \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
     \ 'CmdlineEnter', 'CmdlineChanged',
     \ ])
+call ddc#custom#patch_global('ui', 'pum')
 
 call ddc#custom#patch_global('sources', ['around', 'buffer', 'skkeleton'])
 
@@ -80,21 +80,19 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'matchers' : ['matcher_head'],
   \   'sorters' : ['sorter_rank'],
   \ },
-  \ 'around' : {'mark' : 'A'},
-  \ 'buffer' : {'mark' : 'B', 'requireSameFiletype' : 'v:false'},
-  \ 'cmdline' : {'mark' : 'cmdline'},
-  \ 'cmdline-history' : {'mark' : 'history', 'sorters': []},
-  \ 'necovim' : {'mark' : 'vim'},
+  \ 'around' : {'mark' : '[A]'},
+  \ 'buffer' : {'mark' : '[B]', 'requireSameFiletype' : 'v:false'},
+  \ 'cmdline' : {'mark' : '[cmdline]'},
+  \ 'cmdline-history' : {'mark' : '[history]', 'sorters': []},
+  \ 'necovim' : {'mark' : '[vim]'},
   \ 'skkeleton' : {
-  \   'mark' : 'skk',
+  \   'mark' : '[skk]',
   \   'matchers' : ['skkeleton'],
   \   'sorters' : [],
   \   'minAutoCompleteLength' : 2,
   \ },
-  \ 'nvimlsp' : {'mark' : 'lsp', 'forceCompletionPattern': '\.|:|->'},
+  \ 'nvimlsp' : {'mark' : '[lsp]', 'forceCompletionPattern': '\.|:|->'},
   \ })
-
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
 call ddc#custom#patch_filetype(
   \ ['typescript', 'typescriptreact', 'typescript.tsx'],
@@ -159,6 +157,10 @@ inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 
 call ddc#enable()
 '''
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'

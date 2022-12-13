@@ -11,10 +11,6 @@ repo = 'lifepillar/vim-solarized8'
 repo = 'mhartington/oceanic-next'
 
 [[plugins]]
-repo = 'zeertzjq/nvim-paste-fix'
-if = 'has("wsl")'
-
-[[plugins]]
 repo = 'Shougo/ddu.vim'
 hook_add = '''
 call ddu#custom#patch_global({
@@ -179,6 +175,9 @@ if = '!has("wsl")'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+hook_add = '''
+call pum#set_option('use_complete', v:true)
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'

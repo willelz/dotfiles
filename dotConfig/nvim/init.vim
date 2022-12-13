@@ -19,6 +19,7 @@ set tabstop=2  "タブを表示するとき
 set shiftwidth=2  "タブを挿入するとき
 set breakindent
 set termguicolors
+set mouse=
 
 tnoremap <Esc> <C-\><C-n>
 
