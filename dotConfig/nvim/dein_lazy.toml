@@ -1,8 +1,7 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_ft = ['typescript', 'typescriptreact', 'typescript.tsx', 'lua', 'sh']
-hook_source = '''
-lua << EOF
+lua_source = '''
 require"fidget".setup{}
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
@@ -60,7 +59,6 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
 }
-EOF
 '''
 
 [[plugins]]
@@ -215,6 +213,7 @@ autocmd User skkeleton-initialize-pre call s:skkeleton_init()
 [[plugins]]
 repo = 'willelz/teastylua.nvim'
 on_ft = "lua"
+depends = 'nvim-lspconfig'
 hook_source = '''
 nmap <Space>f <Plug>teastyluaFormat
 '''
