@@ -70,8 +70,9 @@ endfunction
 
 command! DDUHelp call ddu#start({'sources':[{'name':'help'}]})
 command! DDURg call ddu#start({'sources':[{'name':'rg'}], 'volatile':v:true})
-command! DDUGitFile call ddu#start({'sources':[{'name':'file_external'}])
-command! DDUFile call ddu#start({'sources':[{'name':'file_rec'}])
+command! DDUGitFile call ddu#start({'sources':[{'name':'file_external'}]})
+command! DDUFile call ddu#start({'sources':[{'name':'file_rec'}]})
+command! DDUDeinDirectory call ddu#start({'sources':[{'name':'file_rec', 'options':{'path':expand("~/.cache/dein/repos/github.com")}}]})
 '''
 
 [[plugins]]
