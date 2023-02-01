@@ -79,7 +79,7 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'sorters' : ['sorter_rank'],
   \ },
   \ 'around' : {'mark' : '[A]'},
-  \ 'buffer' : {'mark' : '[B]', 'requireSameFiletype' : 'v:false'},
+  \ 'buffer' : {'mark' : '[B]',},
   \ 'cmdline' : {'mark' : '[cmdline]'},
   \ 'cmdline-history' : {'mark' : '[history]', 'sorters': []},
   \ 'necovim' : {'mark' : '[vim]'},
