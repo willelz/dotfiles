@@ -156,15 +156,6 @@ vmap <silent> <Leader>w <Plug>TranslateWV
 repo = 'j-hui/fidget.nvim'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'othree/html5.vim'
-
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-
-[[plugins]]
 repo = 'psliwka/vim-smoothie'
 hook_add = '''
 let g:smoothie_update_interval = 10
