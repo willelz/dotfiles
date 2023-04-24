@@ -79,7 +79,7 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'sorters' : ['sorter_rank'],
   \ },
   \ 'around' : {'mark' : '[A]'},
-  \ 'buffer' : {'mark' : '[B]',},
+  \ 'buffer' : {'mark' : '[B]'},
   \ 'cmdline' : {'mark' : '[cmdline]'},
   \ 'cmdline-history' : {'mark' : '[history]', 'sorters': []},
   \ 'necovim' : {'mark' : '[vim]'},
@@ -89,7 +89,21 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'sorters' : [],
   \   'minAutoCompleteLength' : 2,
   \ },
-  \ 'nvimlsp' : {'mark' : '[lsp]', 'forceCompletionPattern': '\.|:|->'},
+  \ 'nvimlsp' : {
+  \   'mark' : '[lsp]',
+  \   'forceCompletionPattern': '\.\w*|:\w*|-\w*',
+  \   'dup' : 'force',
+  \ },
+  \ })
+
+call ddc#custom#patch_global('sourceParams', {
+  \ 'buffer' : {'requireSameFiletype' : v:false},
+  \ })
+
+call ddc#custom#patch_global('cmdlineSources', {
+  \ ':' : ['cmdline', 'cmdline-history', 'around'],
+  \ '/' : ['around'],
+  \ '?' : ['around'],
   \ })
 
 call ddc#custom#patch_filetype(
@@ -103,6 +117,10 @@ call ddc#custom#patch_filetype(
 call ddc#custom#patch_filetype(
   \ ['vim', 'toml'],
   \ 'sources', ['necovim', 'around', 'buffer', 'skkeleton'])
+
+cnoremap <expr> <Tab>
+      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+      \ ddc#map#manual_complete()
 
 nnoremap : <Cmd>call CommandlinePre()<CR>:
 
@@ -119,10 +137,7 @@ function! CommandlinePre() abort
     let b:prev_buffer_config = ddc#custom#get_buffer()
   endif
 
-  call ddc#custom#patch_buffer('cmdlineSources', ['cmdline', 'cmdline-history', 'around'])
-
   autocmd User DDCCmdlineLeave ++once call CommandlinePost()
-  autocmd InsertEnter <buffer> ++once call CommandlinePost()
 
   " Enable command line completion
   call ddc#enable_cmdline_completion()
