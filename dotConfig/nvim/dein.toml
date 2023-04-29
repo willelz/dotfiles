@@ -59,17 +59,17 @@ endfunction
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
 function! s:ddu_filter_my_settings() abort
   inoremap <buffer><silent> <CR>
-  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
   nnoremap <buffer><silent> <CR>
-  \ <Cmd>call ddu#ui#ff#close()<CR>
+  \ <Cmd>call ddu#ui#ff#do_action('closeFilterWindow')<CR>
   nnoremap <buffer><silent> q
-  \ <Cmd>close<CR>
+  \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
   nnoremap <buffer><silent> Q
   \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 endfunction
 
 command! DDUHelp call ddu#start({'sources':[{'name':'help'}]})
-command! DDURg call ddu#start({'sources':[{'name':'rg'}], 'volatile':v:true})
+command! DDURg call ddu#start({'sources':[{'name':'rg', 'options':{'volatile':v:true}}]})
 command! DDUGitFile call ddu#start({'sources':[{'name':'file_external'}]})
 command! DDUFile call ddu#start({'sources':[{'name':'file_rec'}]})
 command! DDUDeinDirectory call ddu#start({'sources':[{'name':'file_rec', 'options':{'path':expand("~/.cache/dein/repos/github.com")}}]})
