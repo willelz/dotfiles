@@ -182,13 +182,13 @@ let g:lightline = {
   \    'right' : [ ['lineinfo'],
   \                ['percent'],
   \                ['filetype'],
-  \                ['skkst']]
+  \                ['skk']]
   \  },
   \  'component_function' : {
-  \    'skkst' : 'g:Skk_statusline'
+  \    'skk' : 'g:SKK_statusline'
   \  }
   \}
-function! g:Skk_statusline() abort
+function! g:SKK_statusline() abort
     if get(g:, 'loaded_skkeleton') == 0
       return ''
     endif

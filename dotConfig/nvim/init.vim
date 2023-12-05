@@ -44,15 +44,27 @@ let g:loaded_netrwFileHandlers = 1
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 nnoremap yss "+yy
+let g:skk_yank = v:false
+command SKKON let g:skk_yank = v:true
 
 command! Erc e ~/.config/nvim/init.vim
 command! Eml e ~/.config/nvim/dein.toml
 command! Ell e ~/.config/nvim/dein_lazy.toml
 
-augroup toml_syntax
+augroup init.vim
   autocmd!
   autocmd BufWinEnter dein.toml,dein_lazy.toml call dein#toml#syntax()
+  autocmd InsertLeave * if g:skk_yank | let @+ = getline('.') | endif
+  autocmd User skkeleton-mode-changed call s:kata()
 augroup END
+
+function s:kata()
+  if g:skkeleton#mode ==# 'hira'
+    call skkeleton#register_keymap('input', "q", 'katakana')
+  elseif g:skkeleton#mode ==# 'kata'
+    call skkeleton#register_keymap('input', "q", '')
+  endif
+endfunction
 
 if exists('$TOKEN_FOR_DEIN')
   let g:dein#install_github_api_token = $TOKEN_FOR_DEIN
