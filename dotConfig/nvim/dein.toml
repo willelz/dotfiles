@@ -44,29 +44,33 @@ call ddu#custom#patch_global({
   \ },
 \})
 
-autocmd FileType ddu-ff call s:ddu_my_settings()
-function! s:ddu_my_settings() abort
-  nnoremap <buffer><silent> <CR>
-        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> <Space>
-        \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
-  nnoremap <buffer><silent> i
-        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-  nnoremap <buffer><silent> q
-        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
-endfunction
+augroup my_ddu
+  autocmd!
+  autocmd FileType ddu-ff call s:ddu_my_settings()
+  function! s:ddu_my_settings() abort
+    nnoremap <buffer><silent> <CR>
+          \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+    nnoremap <buffer><silent> <Space>
+          \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+    nnoremap <buffer><silent> i
+          \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+    nnoremap <buffer><silent> q
+          \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  endfunction
 
-autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
-function! s:ddu_filter_my_settings() abort
-  inoremap <buffer><silent> <CR>
-  \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
-  nnoremap <buffer><silent> <CR>
-  \ <Cmd>call ddu#ui#ff#do_action('closeFilterWindow')<CR>
-  nnoremap <buffer><silent> q
-  \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
-  nnoremap <buffer><silent> Q
-  \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
-endfunction
+  autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+  function! s:ddu_filter_my_settings() abort
+    inoremap <buffer><silent> <CR>
+    \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
+    nnoremap <buffer><silent> <CR>
+    \ <Cmd>call ddu#ui#ff#do_action('closeFilterWindow')<CR>
+    nnoremap <buffer><silent> q
+    \ <Esc>:call ddu#ui#ff#do_action('closeFilterWindow')<CR>
+    nnoremap <buffer><silent> Q
+    \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  endfunction
+
+augroup END
 
 command! DDUHelp call ddu#start({'sources':[{'name':'help'}]})
 command! DDURg call ddu#start({'sources':[{'name':'rg', 'options':{'volatile':v:true}}]})
@@ -117,7 +121,17 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-nnoremap <silent> <Leader>t <cmd>Deol fish<CR>
+augroup my_deol
+  autocmd!
+  autocmd FileType deol call s:deol_settings()
+augroup END
+
+function s:deol_settings()
+  setlocal splitbelow
+endfunction
+
+let g:deol#prompt_pattern = '.\+<'
+nnoremap <silent> <Leader>t <cmd>call deol#start({'command':'fish'})<CR>
 '''
 
 [[plugins]]
@@ -167,9 +181,6 @@ if = '!has("wsl")'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-hook_add = '''
-call pum#set_option('use_complete', v:true)
-'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
