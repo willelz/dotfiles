@@ -209,7 +209,7 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo='vim-skk/skkeleton'
-on_event = 'InsertEnter'
+on_event = ['InsertEnter', 'CursorHold']
 hook_source='''
 function! s:skkeleton_init() abort
   call skkeleton#config({
@@ -224,6 +224,10 @@ endfunction
 
 imap <C-j> <Plug>(skkeleton-enable)
 cmap <C-j> <Plug>(skkeleton-enable)
+
+"無名レジスタにセットしてから呼ぶ
+imap <Plug>skk_ReKatakana <cmd>call skkeleton#handle('enable',{})<CR><cmd>call skkeleton#handle('handleKey', {'key':[';',getreg()]})<CR>q
+nmap qre ce<Plug>skk_ReKatakana
 
 autocmd User skkeleton-initialize-pre call s:skkeleton_init()
 '''
