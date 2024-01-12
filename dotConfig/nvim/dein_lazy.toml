@@ -213,7 +213,10 @@ on_event = ['InsertEnter', 'CursorHold']
 hook_source='''
 function! s:skkeleton_init() abort
   call skkeleton#config({
-    \ 'globalJisyo' : $HOME .. '/.skk/SKK-JISYO.L',
+    \ 'globalDictionaries' : ['~/.skk/SKK-JISYO.L'],
+    \ 'userDictionary' : '~/.skk/skkeleton',
+    \ 'databasePath' : '~/.skk/skk_deno_kv',
+    \ 'sources' : ['deno_kv'],
     \ 'markerHenkan' : '',
     \ 'markerHenkanSelect' : '',
     \ })
