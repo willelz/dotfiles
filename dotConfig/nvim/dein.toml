@@ -3,6 +3,10 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+hook_add = '''
+"deno_kv for skkeleton
+call add(g:denops#server#deno_args, "--unstable-kv")
+'''
 
 [[plugins]]
 repo = 'lifepillar/vim-solarized8'
