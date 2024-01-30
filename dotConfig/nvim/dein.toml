@@ -172,6 +172,10 @@ vmap <silent> <Leader>w <Plug>TranslateWV
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
+lua_source = '''
+vim.notify = require("fidget.notification").notify
+require('fidget').setup()
+'''
 
 [[plugins]]
 repo = 'psliwka/vim-smoothie'

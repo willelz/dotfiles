@@ -2,7 +2,6 @@
 repo = 'neovim/nvim-lspconfig'
 on_ft = ['typescript', 'typescriptreact', 'typescript.tsx', 'lua', 'sh']
 lua_source = '''
-require"fidget".setup{}
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   -- Mappings.
