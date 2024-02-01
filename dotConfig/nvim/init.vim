@@ -72,6 +72,7 @@ endif
 
 let g:dein#install_progress_type = 'floating'
 let g:dein#types#git#enable_partial_clone = v:true
+let g:dein#enable_notification = v:true
 
 "dein Scripts-----------------------------
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim

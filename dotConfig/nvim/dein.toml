@@ -125,15 +125,6 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-augroup my_deol
-  autocmd!
-  autocmd FileType deol call s:deol_settings()
-augroup END
-
-function s:deol_settings()
-  setlocal splitbelow
-endfunction
-
 let g:deol#prompt_pattern = '.\+<'
 nnoremap <silent> <Leader>t <cmd>call deol#start({'command':'fish'})<CR>
 '''
@@ -168,13 +159,6 @@ hook_add = '''
 let g:translator_target_lang = 'ja'
 nmap <silent> <Leader>w <Plug>TranslateW
 vmap <silent> <Leader>w <Plug>TranslateWV
-'''
-
-[[plugins]]
-repo = 'j-hui/fidget.nvim'
-lua_source = '''
-vim.notify = require("fidget.notification").notify
-require('fidget').setup()
 '''
 
 [[plugins]]
