@@ -43,6 +43,9 @@ let g:loaded_netrwFileHandlers = 1
 "ESC2回でハイライト切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 nnoremap yss "+yy
 let g:skk_yank = v:false
 command SKKON let g:skk_yank = v:true
